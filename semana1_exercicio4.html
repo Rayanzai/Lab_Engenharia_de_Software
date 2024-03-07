@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio4 - Rayan</title>
+    <script>
+        let info = prompt("Digite algo: ")
+        if(confirm("Deseja verificar o tipo da sua entrada: ")){
+            if(!isNaN(info)){
+                conversaoNumber = parseInt(info);
+                document.write(typeof(conversaoNumber));
+            }
+            else if(info == "true" || info == "false" || info == "sim" || info == "não"){
+                conversaoBool = Boolean(info)
+                console.log(conversaoBool)
+                document.write(typeof(conversaoBool));
+                }
+            else{
+                document.write(typeof(info));
+            }
+            
+        }
+        else{
+            document.write("Obrigado por visitar esta página - Rayan ;)")
+        }
+      
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
