@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rayan Anzai">
+    <title>Atividade 1</title>
+</head>
+<body>
+    <h1>Atividade 1 - Adicionar no Array</h1>
+    
+    <input type="text" name="inputUser" id="inputUser">
+    <button onclick="Inserir()">INSERIR</button>
+    
+    <ol id="listar">
+        
+    </ol>
+
+    <script>
+        lista = new Array();
+        function Inserir(){
+            var novo_valor = document.getElementById("inputUser").value;
+            lista.push(novo_valor)
+            // alert("Valor inserido!")
+            // document.getElementById("inputUser").value = "";
+            Ordenar();
+            
+        }
+
+        function Ordenar(){
+            lista.sort();
+            listar.innerHTML = "";
+            lista.forEach(function(inputUser) {
+                var itemLista = document.createElement("li");
+                itemLista.textContent = inputUser;
+                listar.appendChild(itemLista);
+            });
+            
+        }
+
+        
+    </script>
+</body>
+</html>
