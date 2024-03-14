@@ -11,14 +11,36 @@
 
     <script>
         function alterarHora(){
-
+            // INSTANCIA DO OBJETO DATA
             var data = new Date();
             
             var horas = data.getHours();
             var minutos = data.getMinutes();
             var segundos = data.getSeconds();
 
-            
+            // TRATAMENTO HORAS
+            if(horas < 10){
+                horas = `0${horas}`
+            }
+            else{
+                horas = horas;
+            }
+
+            // TRATAMENTO MINUTOS
+            if(minutos < 10){
+                minutos = `0${minutos}`
+            }
+            else{
+                minutos = minutos;
+            }
+
+            // TRATAMENTO SEGUNDOS 
+            if(segundos < 10){
+                segundos = `0${segundos}`
+            }
+            else{
+                segundos = segundos;
+            }
 
             //TESTE EXIBIR
             horario = horas + ":" + minutos + ":" + segundos;
@@ -26,7 +48,9 @@
 
             setTimeout(alterarHora, 1000)
         }
+
         alterarHora();
+        
     </script>
 </body>
 </html>
