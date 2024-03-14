@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 3 Atividade 1 - Rayan Anzai</title>
+</head>
+<body>
+    <script>
+        var data = new Date;
+        var semana = data.getDay(); // if de semana
+        var dia = data.getDate();
+        var mes = data.getMonth(); //if de mes
+        var ano = data.getFullYear();
+
+        switch(semana){
+            case 0:
+                nomeSemana = "Domingo";
+                break;
+            case 1:
+                nomeSemana = "Segunda-Feira";
+                break;
+            case 2:
+                nomeSemana = "Terça-Feira";
+                break;
+            case 3:
+                nomeSemana = "Quarta-Feira";
+                break;
+            case 4:
+                nomeSemana = "Quinta-Feira";
+                break;
+            case 5:
+                nomeSemana = "Sexta-Feira";
+                break;
+            case 6:
+                nomeSemana = "Sábado";
+                break;
+            default:
+                nomeSemana = "Dia da Semana com problema";
+        } 
+
+        switch(mes){
+            case 0:
+                nomeMes = "Janeiro";
+                break;
+            case 1:
+                nomeMes = "Fevereiro";
+                break;
+            case 2:
+                nomeMes = "Março";
+                break;
+            case 3:
+                nomeMes = "Abril";
+                break;
+            case 4:
+                nomeMes = "Maio";
+                break;
+            case 5:
+                nomeMes = "Junho";
+                break;
+            case 6:
+                nomeMes = "Julho";
+                break;
+            case 7:
+                nomeMes = "Agosto";
+                break;
+            case 8:
+                nomeMes = "Setembro";
+                break;
+            case 9:
+                nomeMes = "Outubro";
+                break;
+            case 10:
+                nomeMes = "Novembro";
+                break;
+            case 11:
+                nomeMes = "Dezembro";
+                break;
+            default:
+                nomeMes = "Mês inexistente";
+        } 
+        
+
+
+        document.write(nomeSemana+ ", " + dia + " de " + nomeMes + " de " + ano)
+
+    </script>
+</body>
+</html>

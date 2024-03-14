@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 3 Atividade 3 - Rayan Anzai</title>
+</head>
+<body>
+    <input type="text" id="inputValor" name="inputValor">
+    <input type="button" value="VERIFICAR" onclick="ePalindromo()">
+
+
+    <script>
+       
+        function ePalindromo() {
+            var valor = document.getElementById("inputValor").value;
+            var valorMinusculo = valor.toLowerCase();
+            var valorInvertido = valorMinusculo.split('').reverse().join('');
+            if(valorMinusculo == valorInvertido){
+                alert("É uma palindromo")
+            }
+            else{
+                alert("não é uma palindromo")
+            }
+            
+        }
+
+        // if(ePalindromo(valor)){
+        //     document.getElementById("resultado").innerHTML = ""
+        //     document.getElementById("resultado").innerHTML = "É um palíndromo"
+        // }
+        // else{
+        //     document.getElementById("resultado").innerHTML = "Não é um palíndromo"
+        // }
+    </script>
+</body>
+</html>
