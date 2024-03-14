@@ -11,27 +11,23 @@
 
 
     <script>
-       
-        function ePalindromo() {
+      function ePalindromo() {
+            // CAPTURA VALOR
             var valor = document.getElementById("inputValor").value;
-            var valorMinusculo = valor.toLowerCase();
-            var valorInvertido = valorMinusculo.split('').reverse().join('');
-            if(valorMinusculo == valorInvertido){
-                alert("É uma palindromo")
+
+            // TRATAMENTO DE ESPAÇOS, LETRAS MAIUSCULAS E INVERSÃO
+            var valorTratamento = valor.toLowerCase().replace(/\s/g, '');
+            var valorInvertido = valorTratamento.split('').reverse().join('');
+
+            // VERIFICAÇÃO
+            if(valorTratamento == valorInvertido){
+                alert("É um palíndromo")
             }
             else{
-                alert("não é uma palindromo")
+                alert("Não é um palíndromo")
             }
             
         }
-
-        // if(ePalindromo(valor)){
-        //     document.getElementById("resultado").innerHTML = ""
-        //     document.getElementById("resultado").innerHTML = "É um palíndromo"
-        // }
-        // else{
-        //     document.getElementById("resultado").innerHTML = "Não é um palíndromo"
-        // }
     </script>
 </body>
 </html>
