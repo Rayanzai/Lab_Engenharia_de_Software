@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Pessoa(){
+            var nome;
+            var sobrenome;
+            var email;
+            var data_nascimento;
+            this.nome_completo = function(){
+                return this.nome + " " + this.sobrenome;
+            }
+
+            this.setNome = function(nome){
+                this.nome = nome;
+            }
+            this.getNome = function(){
+                return this.nome;
+            }
+
+            this.setSobrenome = function(sobrenome){
+                this.sobrenome = sobrenome;
+            }
+            this.getSobrenome = function(){
+                return this.sobrenome;
+            }
+
+            this.setEmail = function(email){
+                this.email = email;
+            }
+            this.getEmail = function(){
+                return this.email;
+            }
+
+            this.setData = function(data_nascimento){
+                this.data_nascimento = data_nascimento;
+
+            }
+            this.getData = function(){
+                return this.data_nascimento;
+            }
+            
+
+        }
+
+        function Aluno(){
+            Pessoa.call(this);
+            var curso = "ADS"
+        }
+
+        function Professor(){
+            Pessoa.call(this);
+
+            var area_atuacao;
+            var link_lattes;
+        }
+
+        var aluno = new Aluno();
+        aluno.setNome("Rayan");
+        aluno.setSobrenome("Anzai");
+        aluno.setEmail("anzairayan@gmail.com");
+        aluno.setData("22/07/1999");
+        
+        
+
+        document.write(aluno.getNome());
+        document.write(aluno.getSobrenome());
+        document.write(aluno.getEmail());
+        document.write(aluno.getData());
+        
+    </script>
+</body>
+</html>

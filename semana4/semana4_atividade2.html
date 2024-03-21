@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 4 - Atividade 2 - Rayan Anzai</title>
+</head>
+<body>
+
+    <h1>Atividade 2 - Forms Carro</h1>
+    <form action="">
+        <label for="marca">Marca: </label>
+        <input type="text" id="marca" name="marca">
+
+        <label for="modelo">Modelo: </label>
+        <input type="text" id="modelo" name="modelo">
+
+        <label for="ano">Ano: </label>
+        <input type="number" id="ano" name="ano">
+       
+        <label for="cor">Cor: </label>
+        <input type="text" id="cor" name="cor">
+
+        <label for="kilometragem">Kilometragem: </label>
+        <input type="number" id="km" name="km">
+
+        <label for="valor_fipe">Valor tabela FIPE:</label>
+        <input type="number" id="valor_fipe" name="valor_fipe">
+
+
+        <button type="button" onclick="resultado()">Calcular </button>
+    </form>
+
+    <!-- <p id="exibeResultado"> </p> -->
+
+
+    <script>
+        function Carro(marca, modelo, ano, cor, km, valor_fipe){
+            this.marca = marca;
+            this.modelo = modelo;
+            this.ano = ano;
+            this.cor = cor;
+            this.km = km;
+            this.valor_fipe = valor_fipe;
+
+            this.anosUtilizacao = function() {
+                const anoAtual = new Date().getFullYear();
+                return anoAtual - this.ano;
+            };
+            
+        }
+
+        function resultado(){
+            const marca = document.getElementById("marca").value;
+            const modelo = document.getElementById("modelo").value;
+            const ano = parseInt(document.getElementById("ano").value);
+            const cor = document.getElementById("cor").value;
+            const km = parseInt(document.getElementById("km").value);
+            const valor_fipe = parseFloat(document.getElementById("valor_fipe").value);
+
+            var car = new Carro(marca, modelo, ano, cor, km, valor_fipe);
+
+            console.log(car.anosUtilizacao());
+        }
+    </script>
+</body>
+</html>
