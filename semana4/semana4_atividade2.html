@@ -31,11 +31,14 @@
         <button type="button" onclick="resultado()">Calcular </button>
     </form>
 
-    <!-- <p id="exibeResultado"> </p> -->
+    <p id="exibeAno"> </p>
+    <p id="exibeFipe"> </p>
 
 
     <script>
+        // OBJETO
         function Carro(marca, modelo, ano, cor, km, valor_fipe){
+            // ATRIBUTOS
             this.marca = marca;
             this.modelo = modelo;
             this.ano = ano;
@@ -43,10 +46,26 @@
             this.km = km;
             this.valor_fipe = valor_fipe;
 
+            // METODOS
             this.anosUtilizacao = function() {
                 const anoAtual = new Date().getFullYear();
                 return anoAtual - this.ano;
             };
+
+            this.valorMercado = function() {
+                if (this.km <= 30000 && this.km > 0){
+                    return this.valor_fipe * (110 /100);
+                }
+                else if(this.km > 30000 && this.km <= 50000){
+                    return this.valor_fipe * (100 /100);
+                }
+                else if(this.km > 50000){
+                    return this.valor_fipe * (90 / 100);
+                }
+                else if(this.km < 0){
+                    return "Valor inválido";
+                }
+            }
             
         }
 
@@ -60,7 +79,16 @@
 
             var car = new Carro(marca, modelo, ano, cor, km, valor_fipe);
 
-            console.log(car.anosUtilizacao());
+            // console.log(car.anosUtilizacao());
+            // console.log(car.valorMercado());
+            
+            // EXIBE NA PÁGINA
+            var exibirResultado = document.getElementById("exibeAno");
+            exibirResultado.innerHTML = `Anos de Utilização: ${car.anosUtilizacao()} anos`;
+            
+            var exibeResultado2 = document.getElementById("exibeFipe");
+            exibeResultado2.innerHTML = `Valor de Mercado: R$ ${car.valorMercado().toFixed(2)}`
+
         }
     </script>
 </body>
