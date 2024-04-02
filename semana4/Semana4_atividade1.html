@@ -7,7 +7,7 @@
 </head>
 <body>
     <form action="">
-        <h1>Formulário de cadastro - Professor</h1>
+        <h1>Formulário de cadastro - Orientado a Objeto</h1>
 
         <div class="container">
             <section>
@@ -16,41 +16,204 @@
             </section>
             <section>
                 <label for="email">Email: </label>
-                <input type="text" id="email" placeholder="E-mail">
+                <input type="email" id="email" placeholder="E-mail">
 
-                <label for="data">Data Nascimento:</label>
-                <input type="date" id="data">
+                <label for="dataNasc">Data Nascimento:</label>
+                <input type="date" id="dataNasc">
             </section>
             <section>
-                <label for="telefone">Telefone Fixo: </label>
-                <input type="text" id="telefone_fixo" placeholder="(XX) XXXX-XXXX">
+                <label for="telefoneFixo">Telefone Fixo: </label>
+                <input type="text" id="telefoneFixo" placeholder="(XX) XXXX-XXXX">
             
-                <label for="telefone">Telefone Celular: </label>
-                <input type="text" id="telefone_celular" placeholder="(XX) XXXXX-XXXX">
+                <label for="telefoneCelular">Telefone Celular: </label>
+                <input type="text" id="telefoneCelular" placeholder="(XX) XXXXX-XXXX">
 
-                <input type="radio" name="professor_radio" id="radio_professor" >
-                <label for="Professor">Professor</label>
+                <label for="Professor">  Professor </label> 
+                <input type="radio" name="tipoUsuario" id="Professor" value="Professor" onchange="escolha()" >
                 
-                <input type="radio" name="radio_aluno" id="radio_aluno" >
-                <label for="aluno">Aluno</label><br>
+                <label for="aluno">  Aluno </label>
+                <input type="radio" name="tipoUsuario" id="aluno" value="Aluno" onchange="escolha()" >
+                
             </section>
-            <section>
-                <label for="Area">Área: </label>
+            
+            <section name="area" id="container-prof" style="display: none;">
+                <label for="area">Área: </label>
                 <input type="text" id="area" placeholder="Digite a sua área de atuação: ">
-
-                <label for="telefone">Matrícula: </label>
-                <input type="text" id="matricula" placeholder="Digite a sua matrícula: ">
             </section>
-            <section>
-                <label for="Lattes">Lattes: </label>
+            <section name="matricula" id="container-matricula">
+                <label for="matricula">Matrícula: </label>
+                <input type="text" id="matricula" name="matricula" placeholder="Digite a sua matrícula: ">
+            </section>
+            <section name="lattes" id="container-lattes" style="display: none;">
+                <label for="lattes">Lattes: </label>
                 <input type="text" id="lattes" placeholder="Digite aqui o endereço para o seu Lattes">
+            </section>
+            <section name="curso" id="container-aluno" style="display: none;">
+                <label for="curso">Curso: </label>
+                <input type="text" id="curso" placeholder="Digite aqui o endereço para o seu Lattes">
+            </section>
+
+            <section id="botoes">
+                <input type="button" value="Enviar" id="enviar" onclick="Enviar()">
+                <input type="button" value="Redefinir" onclick="limpar()">
             </section>
 
         </div>
     </form>
 
+    <!-- Apenas para exibir o VERIFIQUE CONSOLE -->
+    <p id="resultado"></p>
+
 
     <script>
+        // CLASSE GENERICA
+        function Pessoa(){
+            this.nome = nome;
+            this.email = email;
+            this.dataNasc = dataNasc;
+            this.telefoneFixo = telefoneFixo;
+            this.telefoneCelular = telefoneCelular;
+            this.matricula = matricula;
+
+            // SETs and GETs
+            this.setNome = function(vNome){
+                this.nome = vNome;
+            }
+            this.getNome = function(){
+                return this.nome;
+            }
+            this.setEmail = function(vEmail){
+                this.email = vEmail;
+            }
+            this.getEmail = function(){
+                return this.email;
+            }
+            this.setDataNasc = function(vdataNasc){
+                this.dataNasc = vdataNasc;
+            }
+            this.getDataNasc = function(){
+                return this.dataNasc;
+            }
+            this.setTelefoneFixo = function(vTelefoneFixo){
+                this.telefoneFixo = vTelefoneFixo;
+            }
+            this.getTelefoneFixo = function(){
+                return this.telefoneFixo;
+            }
+            this.setTelefoneCelular = function(vTelefoneCelular){
+                this.telefoneCelular = vTelefoneCelular;
+            }
+            this.getTelefoneCelular = function(){
+                return this.telefoneCelular;
+            }
+            this.setMatricula = function(vMatricula){
+                this.matricula = vMatricula;
+            }
+            this.getMatricula = function(){
+                return this.matricula;
+            }
+
+        }
+
+        function Aluno(){
+            Pessoa.call(this);
+            this.curso = curso;
+
+            // SETs and GETs
+            this.setCurso = function(vCurso){
+                this.curso = vCurso;
+            }
+            this.getCurso = function(){
+                return this.curso;
+            }
+        }
+
+        function Professor(){
+            Pessoa.call(this);
+            this.area = area;
+            this.lattes = lattes;
+
+            // SETs and GETs
+            this.setArea = function(vArea){
+                this.area = vArea;
+            }
+            this.getArea = function(){
+                return this.area;
+            }
+            this.setLattes = function(vLattes){
+                this.lattes = vLattes;
+            }
+            this.getLattes = function(){
+                return this.lattes;
+            }
+
+        }
+
+        // FUNÇÃO PARA ESCOLHER ENTRE PROFESSOR E ALUNO 
+        function escolha(){
+            //Variavel para armazenar opção selecionada
+            var escolhaSelecionada = document.querySelector('input[name="tipoUsuario"]:checked').value;
+
+            if(escolhaSelecionada == "Professor"){
+
+                document.getElementById("container-prof").style.display = "block"
+                document.getElementById("container-lattes").style.display = "block"
+                document.getElementById("container-aluno").style.display = "none"
+            }
+            else if(escolhaSelecionada == "Aluno"){
+                document.getElementById("container-prof").style.display = "none"
+                document.getElementById("container-lattes").style.display = "none"
+                document.getElementById("container-aluno").style.display = "block"
+            }
+        }
+
+        function Enviar(){
+            var escolhaSelecionadaEnviar = document.querySelector('input[name="tipoUsuario"]:checked').value;
+
+            if(escolhaSelecionadaEnviar == "Professor"){
+                var Prof = new Professor();
+                Prof.setNome(document.getElementById("nome").value);
+                Prof.setEmail(document.getElementById("email").value)
+                Prof.setDataNasc(document.getElementById("dataNasc").value)
+                Prof.setTelefoneFixo(document.getElementById("telefoneFixo").value)
+                Prof.setTelefoneCelular(document.getElementById("telefoneCelular").value)
+                Prof.setMatricula(document.getElementById("matricula").value)
+                Prof.setArea(document.getElementById("area").value)
+                Prof.setLattes(document.getElementById("lattes").value)
+
+                console.log(`Nome: ${Prof.getNome()}`);
+                console.log(`Email: ${Prof.getEmail()}`);
+                console.log(`Data de Nascimento: ${Prof.getDataNasc()}`);
+                console.log(`Telefone Fixo: ${Prof.getTelefoneFixo()}`);
+                console.log(`Telefone Celular: ${Prof.getTelefoneCelular()}`);
+                console.log(`Número da matrícula: ${Prof.getMatricula()}`);
+                console.log(`Área de atuação: ${Prof.getArea()}`);
+                console.log(`Currículo Lattes: ${Prof.getLattes()}`);
+
+                document.getElementById("resultado").innerHTML = "VERIFICAR CONSOLE!";
+            }
+            else if(escolhaSelecionadaEnviar == "Aluno"){
+                var aluno = new Aluno();
+                aluno.setNome(document.getElementById("nome").value);
+                aluno.setEmail(document.getElementById("email").value)
+                aluno.setDataNasc(document.getElementById("dataNasc").value)
+                aluno.setTelefoneFixo(document.getElementById("telefoneFixo").value)
+                aluno.setTelefoneCelular(document.getElementById("telefoneCelular").value)
+                aluno.setMatricula(document.getElementById("matricula").value)
+                aluno.setCurso(document.getElementById("curso").value)
+                
+
+                console.log(`Nome: ${aluno.getNome()}`);
+                console.log(`Email: ${aluno.getEmail()}`);
+                console.log(`Data de Nascimento: ${aluno.getDataNasc()}`);
+                console.log(`Telefone Fixo: ${aluno.getTelefoneFixo()}`);
+                console.log(`Telefone Celular: ${aluno.getTelefoneCelular()}`);
+                console.log(`Número da matrícula: ${aluno.getMatricula()}`);
+                console.log(`Curso: ${aluno.getCurso()}`);
+                
+                document.getElementById("resultado").innerHTML = "VERIFICAR CONSOLE!";
+            }
+        }
 
     </script>
 </body>
