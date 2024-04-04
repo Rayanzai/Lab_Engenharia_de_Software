@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de pessoas - RAYAN ANZAI</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+
+        window.onload = function(){
+            var contadorTotal = 0;
+            var contadorHomens = 0
+            var contadorMulheres = 0
+
+            // wrap
+            var bordaWrap = document.createElement("div");
+            document.getElementById("container").appendChild(bordaWrap)
+            bordaWrap.setAttribute("style", "border: 1px solid black; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 20px; width: 50%; margin: auto")
+            bordaWrap.setAttribute("id", "container-wrap")
+
+
+            // Titulo TOTAL
+            var tagtituloTotal = document.createElement("h1");
+            var tituloTotal = document.createTextNode("TOTAL")
+            tagtituloTotal.appendChild(tituloTotal);
+            document.getElementById("container-wrap").appendChild(tagtituloTotal)
+
+            // DIV TOTAL CONTADOR
+            var bordaContador = document.createElement("div");
+            document.getElementById("container-wrap").appendChild(bordaContador);
+            bordaContador.setAttribute("id", "divContador")
+            bordaContador.setAttribute("style", "border: 1px solid black; display: flex; flex-direction: row; align-items: center; justify-content: center; width: 20%; margin: auto; border-radius: 20px; padding: 2% 0")
+
+
+
+            // DIV HOMENS
+            var divHomens = document.createElement("div")
+            document.getElementById("container-wrap").appendChild(divHomens);
+            divHomens.setAttribute("id","divHomens");
+            divHomens.setAttribute("style", "display: flex; flex-direction: row; align-items: center; justify-content: center; margin: auto; margin: 2% 0");
+
+            // IMAGEM HOMEM
+            var imgH = document.createElement("img");
+            imgH.setAttribute("src", "homem.png")
+            document.getElementById("divHomens").appendChild(imgH)
+            imgH.setAttribute("style", "width:20%")
+
+            var botaoSomaHomens= document.createElement("img");
+            botaoSomaHomens.setAttribute("src", "mais.png")
+            document.getElementById("divHomens").appendChild(botaoSomaHomens)
+            botaoSomaHomens.setAttribute("style", "width:5%")
+            botaoSomaHomens.setAttribute("id", "botaoSomaHomens")
+
+            var botaoMenosHomens = document.createElement("img");
+            botaoMenosHomens.setAttribute("src", "menos.png")
+            document.getElementById("divHomens").appendChild(botaoMenosHomens)
+            botaoMenosHomens.setAttribute("style", "width:5%")
+            botaoMenosHomens.setAttribute("id", "botaoMenosHomens")
+
+            // DIV CONTADOR HOMEM
+            var divContadorHomens = document.createElement("div")
+            document.getElementById("container-wrap").appendChild(divContadorHomens)
+            divContadorHomens.setAttribute("id", "contadorHomens")
+            divContadorHomens.setAttribute("style", "border: 1px solid black; display: flex; flex-direction: row; align-items: center; justify-content: center; width: 50%; margin: auto; border-radius: 20px ")
+
+            // FRASE E MARCADOR
+            var tagQtdHomens = document.createElement("p")
+            var qtdHomens = document.createTextNode("QUANTIDADE DE HOMENS:")
+            tagQtdHomens.appendChild(qtdHomens)
+            document.getElementById("contadorHomens").appendChild(tagQtdHomens)
+            tagQtdHomens.setAttribute("style", "margin-right: 2%")
+            
+            var tagValorHomens = document.createElement("span");
+            var valorHomens = document.createTextNode(" 0")
+            tagValorHomens.appendChild(valorHomens)
+            document.getElementById("contadorHomens").appendChild(tagValorHomens)
+            tagValorHomens.setAttribute("id", "mostrarValorHomens")
+
+
+
+
+            // DIV MuLHERES
+            var divMulheres = document.createElement("div")
+            document.getElementById("container-wrap").appendChild(divMulheres);
+            divMulheres.setAttribute("id","divMulheres");
+            divMulheres.setAttribute("style", "display: flex; flex-direction: row; align-items: center; justify-content: center; margin: auto; margin: 2% 0");
+
+            // IMAGEM MULHERES
+            var imgM = document.createElement("img");
+            imgM.setAttribute("src", "mulher.png")
+            document.getElementById("divMulheres").appendChild(imgM)
+            imgM.setAttribute("style", "width:20%")
+
+            var botaoSomaMulheres= document.createElement("img");
+            botaoSomaMulheres.setAttribute("src", "mais.png")
+            document.getElementById("divMulheres").appendChild(botaoSomaMulheres)
+            botaoSomaMulheres.setAttribute("style", "width:5%")
+            botaoSomaMulheres.setAttribute("id", "botaoSomaMulheres")
+
+            var botaoMenosMulheres = document.createElement("img");
+            botaoMenosMulheres.setAttribute("src", "menos.png")
+            document.getElementById("divMulheres").appendChild(botaoMenosMulheres)
+            botaoMenosMulheres.setAttribute("style", "width:5%")
+            botaoMenosMulheres.setAttribute("id", "botaoMenosMulheres")
+
+
+            // DIV CONTADOR MULHERES
+            var divContadorMulheres = document.createElement("div")
+            document.getElementById("container-wrap").appendChild(divContadorMulheres)
+            divContadorMulheres.setAttribute("id", "contadorMulheres")
+            divContadorMulheres.setAttribute("style", "border: 1px solid black; display: flex; flex-direction: row; align-items: center; justify-content: center; width: 50%; margin: auto; border-radius: 20px ")
+            
+            // FRASE E MARCADOR
+            var tagQtdMulheres = document.createElement("p")
+            var qtdMulheres = document.createTextNode("QUANTIDADE DE MULHERES:")
+            tagQtdMulheres.appendChild(qtdMulheres)
+            document.getElementById("contadorMulheres").appendChild(tagQtdMulheres)
+            tagQtdMulheres.setAttribute("style", "margin-right: 2%")
+
+            var tagValorMulheres = document.createElement("span");
+            var valorMulheres = document.createTextNode("0")
+            tagValorMulheres.appendChild(valorMulheres)
+            document.getElementById("contadorMulheres").appendChild(tagValorMulheres)
+            tagValorMulheres.setAttribute("id", "mostrarValorMulheres")
+
+
+            // CONTADOR TOTAL
+            var tagValorTotal = document.createElement("span")
+            var valorTotal = document.createTextNode("0")
+            tagValorTotal.appendChild(valorTotal)
+            document.getElementById("divContador").appendChild(tagValorTotal)
+            tagValorMulheres
+            tagValorTotal.setAttribute("id", "mostrarValorTotal")
+
+
+            // FUNÇÂO CLICK E EXIBIR HOMENS
+            botaoSomaHomens.onclick = function(){
+                contadorTotal++
+                contadorHomens++
+
+                document.getElementById("mostrarValorHomens").innerHTML = contadorHomens
+                document.getElementById("mostrarValorTotal").innerHTML = contadorTotal
+            }
+            botaoMenosHomens.onclick = function(){
+                if(contadorHomens > 0){
+                    contadorTotal--
+                    contadorHomens--
+
+                    document.getElementById("mostrarValorHomens").innerHTML = contadorHomens
+                    document.getElementById("mostrarValorTotal").innerHTML = contadorTotal
+                }
+            }
+
+            // FUNÇÂO CLICK E EXIBIR MULHERES
+            botaoSomaMulheres.onclick = function(){
+                contadorTotal++
+                contadorMulheres++
+
+                document.getElementById("mostrarValorMulheres").innerHTML = contadorMulheres
+                document.getElementById("mostrarValorTotal").innerHTML = contadorTotal
+            }
+            botaoMenosMulheres.onclick = function(){
+                if(contadorMulheres > 0){
+                    contadorTotal--
+                    contadorMulheres--
+
+                    document.getElementById("mostrarValorMulheres").innerHTML = contadorMulheres
+                    document.getElementById("mostrarValorTotal").innerHTML = contadorTotal
+                }
+            }
+
+            // BOTAO RELOAD
+            var tagReaload = document.createElement("img")
+            tagReaload.setAttribute("src", "reload.png")
+            document.getElementById("container-wrap").appendChild(tagReaload);
+            tagReaload.setAttribute("style", "width: 5%; margin: 2% 0")
+
+            // FUNCAO REALOAD
+            tagReaload.onclick = function(){
+                location.reload();
+            }
+           
+        }
+        
+    </script>
+
+</body>
+</html>
