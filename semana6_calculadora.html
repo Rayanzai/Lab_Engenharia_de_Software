@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA - RAYAN</title>
+</head>
+<body>
+    
+    <div id="container"></div>
+    <script defer>
+        var consultaTela = 0;
+
+        var tagDivWrap = document.createElement("div")
+        document.getElementById("container").appendChild(tagDivWrap);
+        tagDivWrap.setAttribute("id", "container-wrap")
+        tagDivWrap.setAttribute("style", "border: 1px solid black; width: 50%; margin: auto")
+
+        // EXIBE O RESULTADO
+        var tagDivResultado = document.createElement("div")
+        document.getElementById("container-wrap").appendChild(tagDivResultado)
+        tagDivResultado.setAttribute("id", "divResultado")
+        tagDivResultado.setAttribute("style", "border: 1px solid black; margin: 1%")
+
+        var tagResultado = document.createElement("span")
+        var resultado = document.createTextNode("0")
+        tagResultado.appendChild(resultado)
+        document.getElementById("divResultado").appendChild(tagResultado);
+        tagResultado.setAttribute("id", "resultado")
+        tagResultado.setAttribute("style", "display:flex; justify-content: end; padding: 1%")
+
+        // DIV CONTAINER BOTOES
+        var tagDivBotoes = document.createElement("div")
+        document.getElementById("container-wrap").appendChild(tagDivBotoes)
+        tagDivBotoes.setAttribute("id", "divBotoes")
+        tagDivBotoes.setAttribute("style", "display: grid; grid-template-columns: repeat(4, 1fr); row-gap: 10px; justify-items: center;")
+
+
+        // PRIMEIRA LINHA BOTOES
+        var tagBotaoAC = document.createElement("button")
+        var valorAC = document.createTextNode("AC")
+        tagBotaoAC.appendChild(valorAC)
+        document.getElementById("divBotoes").appendChild(tagBotaoAC)
+        
+        var tagBotaoMaisMenos = document.createElement("button")
+        var valorMaisMenos = document.createTextNode("+/-")
+        tagBotaoMaisMenos.appendChild(valorMaisMenos)
+        document.getElementById("divBotoes").appendChild(tagBotaoMaisMenos)
+        
+        var tagBotaoPorcento = document.createElement("button")
+        var valorPorcento = document.createTextNode("%")
+        tagBotaoPorcento.appendChild(valorPorcento)
+        document.getElementById("divBotoes").appendChild(tagBotaoPorcento)
+
+        var tagBotaoDivisao = document.createElement("button")
+        var valorDivisao = document.createTextNode("÷")
+        tagBotaoDivisao.appendChild(valorDivisao)
+        document.getElementById("divBotoes").appendChild(tagBotaoDivisao)
+
+        // SEGUNDA LINHAS
+        
+        var tagBotao7 = document.createElement("button")
+        var valor7 = document.createTextNode("7")
+        tagBotao7.appendChild(valor7)
+        document.getElementById("divBotoes").appendChild(tagBotao7)
+        
+        var tagBotao8 = document.createElement("button")
+        var valor8 = document.createTextNode("8")
+        tagBotao8.appendChild(valor8)
+        document.getElementById("divBotoes").appendChild(tagBotao8)
+        
+        var tagBotao9= document.createElement("button")
+        var valor9 = document.createTextNode("9")
+        tagBotao9.appendChild(valor9)
+        document.getElementById("divBotoes").appendChild(tagBotao9)
+
+        var tagBotaoX = document.createElement("button")
+        var valorX = document.createTextNode("X")
+        tagBotaoX.appendChild(valorX)
+        document.getElementById("divBotoes").appendChild(tagBotaoX)
+
+        // TERCEIRA LINHAS 
+        var tagBotao4 = document.createElement("button")
+        var valor4 = document.createTextNode("4")
+        tagBotao4.appendChild(valor4)
+        document.getElementById("divBotoes").appendChild(tagBotao4)
+        
+        var tagBotao5 = document.createElement("button")
+        var valor5 = document.createTextNode("5")
+        tagBotao5.appendChild(valor5)
+        document.getElementById("divBotoes").appendChild(tagBotao5)
+        
+        var tagBotao6= document.createElement("button")
+        var valor6 = document.createTextNode("6")
+        tagBotao6.appendChild(valor6)
+        document.getElementById("divBotoes").appendChild(tagBotao6)
+
+        var tagBotaoMenos = document.createElement("button")
+        var valorMenos = document.createTextNode("-")
+        tagBotaoMenos.appendChild(valorMenos)
+        document.getElementById("divBotoes").appendChild(tagBotaoMenos)
+
+        // QUARTA LINHA
+
+        var tagBotao1 = document.createElement("button")
+        var valor1 = document.createTextNode("1")
+        tagBotao1.appendChild(valor1)
+        document.getElementById("divBotoes").appendChild(tagBotao1)
+        
+        var tagBotao2 = document.createElement("button")
+        var valor2 = document.createTextNode("2")
+        tagBotao2.appendChild(valor2)
+        document.getElementById("divBotoes").appendChild(tagBotao2)
+        
+        var tagBotao3= document.createElement("button")
+        var valor3 = document.createTextNode("3")
+        tagBotao3.appendChild(valor3)
+        document.getElementById("divBotoes").appendChild(tagBotao3)
+
+        var tagBotaoMais = document.createElement("button")
+        var valorMais = document.createTextNode("+")
+        tagBotaoMais.appendChild(valorMais)
+        document.getElementById("divBotoes").appendChild(tagBotaoMais)
+
+
+        // DIV ULTIMA LINHA
+        var tagDivBotoesUltima = document.createElement("div")
+        document.getElementById("container-wrap").appendChild(tagDivBotoesUltima)
+        tagDivBotoesUltima.setAttribute("id", "divBotoesUltima")
+        tagDivBotoesUltima.setAttribute("style", "display: grid; grid-template-columns: 2fr 1fr 1fr; margin-top: 10px; ; margin-bottom: 20px; justify-items: center;")
+        
+
+        // QUINTA LINHA
+        var tagBotao0 = document.createElement("button")
+        var valor0 = document.createTextNode("0")
+        tagBotao0.appendChild(valor0)
+        document.getElementById("divBotoesUltima").appendChild(tagBotao0)
+        
+        var tagBotaoVirgula = document.createElement("button")
+        var valorVirgula = document.createTextNode(",")
+        tagBotaoVirgula.appendChild(valorVirgula)
+        document.getElementById("divBotoesUltima").appendChild(tagBotaoVirgula)
+        
+        var tagBotaoIgual= document.createElement("button")
+        var valorIgual = document.createTextNode("=")
+        tagBotaoIgual.appendChild(valorIgual)
+        document.getElementById("divBotoesUltima").appendChild(tagBotaoIgual)
+
+
+        // FUNÇÕES
+        // PRIMEIRO LINHA NUMERO
+        tagBotao7.onclick = function(){
+            if(consultaTela != 0){
+                consultaTela += "7";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+            else{
+                consultaTela = "7";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+        }
+        tagBotao8.onclick = function(){
+            if(consultaTela != 0){
+                consultaTela += "8";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+            else{
+                consultaTela = "8";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+        }
+        tagBotao9.onclick = function(){
+            if(consultaTela != 0){
+                consultaTela += "9";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+            else{
+                consultaTela = "9";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+        }
+        // SEGUNDA LINHA NUMERO
+        tagBotao4.onclick = function(){
+            if(consultaTela != 0){
+                consultaTela += "4";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+            else{
+                consultaTela = "4";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+        }
+        tagBotao5.onclick = function(){
+            if(consultaTela != 0){
+                consultaTela += "5";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+            else{
+                consultaTela = "5";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+        }
+        tagBotao6.onclick = function(){
+            if(consultaTela != 0){
+                consultaTela += "6";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+            else{
+                consultaTela = "6";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+        }
+
+        // TERCEIRA LINHA NUMERO
+
+        tagBotao1.onclick = function(){
+            if(consultaTela != 0){
+                consultaTela += "1";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+            else{
+                consultaTela = "1";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+        }
+        tagBotao2.onclick = function(){
+            if(consultaTela != 0){
+                consultaTela += "2";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+            else{
+                consultaTela = "2";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+        }
+        tagBotao3.onclick = function(){
+            if(consultaTela != 0){
+                consultaTela += "3";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+            else{
+                consultaTela = "3";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+        }
+
+        // QUARTA LINHA NUMERO
+        tagBotao0.onclick = function(){
+            if(consultaTela != 0){
+                consultaTela += "0";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+            else{
+                consultaTela = "0";
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+        }
+
+
+        // OPERAÇÕES
+        // divisão
+        tagBotaoDivisao.onclick = function(){
+            consultaTela += '/'
+            document.getElementById("resultado").innerHTML = consultaTela;
+        }
+        // VEZES
+        tagBotaoX.onclick = function(){
+            consultaTela += '*'
+            document.getElementById("resultado").innerHTML = consultaTela;
+        }
+        // MENOS
+        tagBotaoMenos.onclick = function(){
+            consultaTela += '-'
+            document.getElementById("resultado").innerHTML = consultaTela;
+        }
+        // MAIS
+        tagBotaoMais.onclick = function(){
+            consultaTela += '+'
+            document.getElementById("resultado").innerHTML = consultaTela;
+        }
+        // IGUAL
+        tagBotaoIgual.onclick = function(){
+            document.getElementById("resultado").innerHTML = eval(consultaTela);
+        }
+
+        // FUNÇÕES ESPECIAIS
+        tagBotaoAC.onclick = function(){
+            // document.getElementById("resultado").innerHTML = "0";
+            location.reload();
+        }
+
+        tagBotaoMaisMenos.onclick = function(){
+            if(consultaTela != 0){
+                consultaTela *= -1;   
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+        }
+        tagBotaoPorcento.onclick = function(){
+            if(consultaTela != 0){
+                consultaTela /= 100;  
+                document.getElementById("resultado").innerHTML = consultaTela;
+            }
+        }
+        tagBotaoVirgula.onclick = function(){
+            consultaTela = consultaTela + ".";
+            document.getElementById("resultado").innerHTML = consultaTela;
+        }
+
+
+    </script>
+</body>
+</html>
