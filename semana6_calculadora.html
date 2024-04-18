@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,20 +14,20 @@
         var tagDivWrap = document.createElement("div")
         document.getElementById("container").appendChild(tagDivWrap);
         tagDivWrap.setAttribute("id", "container-wrap")
-        tagDivWrap.setAttribute("style", "border: 1px solid black; width: 50%; margin: auto")
+        tagDivWrap.setAttribute("style", "border: 1px solid black; width: 25%; margin: auto; border-radius: 10px; background-color: black;")
 
         // EXIBE O RESULTADO
         var tagDivResultado = document.createElement("div")
         document.getElementById("container-wrap").appendChild(tagDivResultado)
         tagDivResultado.setAttribute("id", "divResultado")
-        tagDivResultado.setAttribute("style", "border: 1px solid black; margin: 1%")
+        tagDivResultado.setAttribute("style", "border: 1px solid black; margin: 1%; border-radius: 5px")
 
         var tagResultado = document.createElement("span")
         var resultado = document.createTextNode("0")
         tagResultado.appendChild(resultado)
         document.getElementById("divResultado").appendChild(tagResultado);
         tagResultado.setAttribute("id", "resultado")
-        tagResultado.setAttribute("style", "display:flex; justify-content: end; padding: 1%")
+        tagResultado.setAttribute("style", "display:flex; justify-content: end; padding: 1%;; color: white; font-size: 150%")
 
         // DIV CONTAINER BOTOES
         var tagDivBotoes = document.createElement("div")
@@ -41,21 +41,25 @@
         var valorAC = document.createTextNode("AC")
         tagBotaoAC.appendChild(valorAC)
         document.getElementById("divBotoes").appendChild(tagBotaoAC)
+        tagBotaoAC.setAttribute("style", "color: black; border-radius: 50%; padding: 10px; background-color: grey")
         
         var tagBotaoMaisMenos = document.createElement("button")
         var valorMaisMenos = document.createTextNode("+/-")
         tagBotaoMaisMenos.appendChild(valorMaisMenos)
         document.getElementById("divBotoes").appendChild(tagBotaoMaisMenos)
+        tagBotaoMaisMenos.setAttribute("style", "color: black; border-radius: 50%; padding: 10px; background-color: grey")
         
         var tagBotaoPorcento = document.createElement("button")
         var valorPorcento = document.createTextNode("%")
         tagBotaoPorcento.appendChild(valorPorcento)
         document.getElementById("divBotoes").appendChild(tagBotaoPorcento)
+        tagBotaoPorcento.setAttribute("style", "color: black; border-radius: 50%; padding: 10px; background-color: grey")
 
         var tagBotaoDivisao = document.createElement("button")
         var valorDivisao = document.createTextNode("÷")
         tagBotaoDivisao.appendChild(valorDivisao)
         document.getElementById("divBotoes").appendChild(tagBotaoDivisao)
+        tagBotaoDivisao.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: orange")
 
         // SEGUNDA LINHAS
         
@@ -63,42 +67,52 @@
         var valor7 = document.createTextNode("7")
         tagBotao7.appendChild(valor7)
         document.getElementById("divBotoes").appendChild(tagBotao7)
+        tagBotao7.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: rgb(69,69,69)")
         
         var tagBotao8 = document.createElement("button")
         var valor8 = document.createTextNode("8")
         tagBotao8.appendChild(valor8)
         document.getElementById("divBotoes").appendChild(tagBotao8)
+        tagBotao8.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: rgb(69,69,69)")
         
         var tagBotao9= document.createElement("button")
         var valor9 = document.createTextNode("9")
         tagBotao9.appendChild(valor9)
         document.getElementById("divBotoes").appendChild(tagBotao9)
+        tagBotao9.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: rgb(69,69,69)")
 
         var tagBotaoX = document.createElement("button")
-        var valorX = document.createTextNode("X")
+        var valorX = document.createTextNode("x")
         tagBotaoX.appendChild(valorX)
         document.getElementById("divBotoes").appendChild(tagBotaoX)
+        tagBotaoX.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: orange")
+
 
         // TERCEIRA LINHAS 
         var tagBotao4 = document.createElement("button")
         var valor4 = document.createTextNode("4")
         tagBotao4.appendChild(valor4)
         document.getElementById("divBotoes").appendChild(tagBotao4)
+        tagBotao4.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: rgb(69,69,69)")
         
         var tagBotao5 = document.createElement("button")
         var valor5 = document.createTextNode("5")
         tagBotao5.appendChild(valor5)
         document.getElementById("divBotoes").appendChild(tagBotao5)
+        tagBotao5.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: rgb(69,69,69)")
         
         var tagBotao6= document.createElement("button")
         var valor6 = document.createTextNode("6")
         tagBotao6.appendChild(valor6)
         document.getElementById("divBotoes").appendChild(tagBotao6)
+        tagBotao6.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: rgb(69,69,69)")
 
         var tagBotaoMenos = document.createElement("button")
         var valorMenos = document.createTextNode("-")
         tagBotaoMenos.appendChild(valorMenos)
         document.getElementById("divBotoes").appendChild(tagBotaoMenos)
+        tagBotaoMenos.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: orange")
+
 
         // QUARTA LINHA
 
@@ -106,21 +120,26 @@
         var valor1 = document.createTextNode("1")
         tagBotao1.appendChild(valor1)
         document.getElementById("divBotoes").appendChild(tagBotao1)
+        tagBotao1.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: rgb(69,69,69)")
         
         var tagBotao2 = document.createElement("button")
         var valor2 = document.createTextNode("2")
         tagBotao2.appendChild(valor2)
         document.getElementById("divBotoes").appendChild(tagBotao2)
+        tagBotao2.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: rgb(69,69,69)")
         
         var tagBotao3= document.createElement("button")
         var valor3 = document.createTextNode("3")
         tagBotao3.appendChild(valor3)
         document.getElementById("divBotoes").appendChild(tagBotao3)
+        tagBotao3.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: rgb(69,69,69)")
 
         var tagBotaoMais = document.createElement("button")
         var valorMais = document.createTextNode("+")
         tagBotaoMais.appendChild(valorMais)
         document.getElementById("divBotoes").appendChild(tagBotaoMais)
+        tagBotaoMais.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: orange")
+
 
 
         // DIV ULTIMA LINHA
@@ -135,16 +154,20 @@
         var valor0 = document.createTextNode("0")
         tagBotao0.appendChild(valor0)
         document.getElementById("divBotoesUltima").appendChild(tagBotao0)
+        tagBotao0.setAttribute("style", "color: white; border-radius: 40%; padding: 10px; background-color: rgb(69,69,69); padding: 0 35%")
         
         var tagBotaoVirgula = document.createElement("button")
         var valorVirgula = document.createTextNode(",")
         tagBotaoVirgula.appendChild(valorVirgula)
         document.getElementById("divBotoesUltima").appendChild(tagBotaoVirgula)
+        tagBotaoVirgula.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: rgb(69,69,69);")
         
         var tagBotaoIgual= document.createElement("button")
         var valorIgual = document.createTextNode("=")
         tagBotaoIgual.appendChild(valorIgual)
         document.getElementById("divBotoesUltima").appendChild(tagBotaoIgual)
+        tagBotaoIgual.setAttribute("style", "color: white; border-radius: 50%; padding: 10px; background-color: orange")
+
 
 
         // FUNÇÕES
